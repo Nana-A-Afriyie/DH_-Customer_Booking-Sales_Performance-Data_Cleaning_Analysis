@@ -72,11 +72,8 @@ Regional Trade Routes: Identification of high-volume origin and destination ship
 Delivery Exceptions & Reliability: Analyzing delay rates and returned package percentages across sales channels (Online Portal, Account Manager, API Integration).
 
 🛠️ Tools & Technologies Used
-SQL (PostgreSQL / SQL Server Management Studio): Data extraction, CTE deduplication, data cleaning, and aggregation queries.<img width="1305" height="566" alt="Screenshot 2026-09-16 203036" src="https://github.com/user-attachments/assets/feac5bdd-9d00-41fc-974b-a9195ce627d5" />
-<img width="1258" height="382" alt="Screenshot 2026-09-16 203107" src="https://github.com/user-attachments/assets/8d04230d-1e18-43d8-9e9b-1ca8245ad0cd" />
-<img width="1312" height="479" alt="Screenshot 2026-09-16 203135" src="https://github.com/user-attachments/assets/925ba823-a44f-4fab-b3c1-666b9b5d8732" />
-[GB_Regional.csv](https://github.com/user-attachments/files/32315705/GB_Regional.csv)
-[GB_Sales_channel.csv](https://github.com/user-attachments/files/32315689/GB_Sales_channel.csv)
+SQL (PostgreSQL / SQL Server Management Studio): Data extraction, CTE deduplication, data cleaning, and aggregation queries.[DHL_Sales_Performance_Uncleaned_10k.csv](https://github.com/user-attachments/files/32316806/DHL_Sales_Performance_Uncleaned_10k.csv)
+
 
 
 Power BI / Excel: Dashboard visual reporting and KPI tracking.
