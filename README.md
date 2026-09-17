@@ -1,3 +1,8 @@
+<img width="934" height="519" alt="Screenshot 2026-09-16 223939" src="https://github.com/user-attachments/assets/4e966466-f980-4ea6-b020-d467038bfdaf" />
+<img width="920" height="367" alt="Screenshot 2026-09-16 224010" src="https://github.com/user-attachments/assets/bc75fc60-03c2-4ff5-8333-f704a9b79084" />
+<img width="941" height="469" alt="Screenshot 2026-09-16 224040" src="https://github.com/user-attachments/assets/428cfc07-371a-4056-87de-f653a0e6d436" />
+<img width="939" height="470" alt="Screenshot 2026-09-16 224135" src="https://github.com/user-attachments/assets/8941c8cc-df65-4e07-85dd-b5ab7d1f4611" />
+<img width="938" height="288" alt="Screenshot 2026-09-16 224216" src="https://github.com/user-attachments/assets/cc158742-c7f7-4b06-8f9b-f46c4a0708cb" />
 # DH_-Customer_Booking-Sales_Performance-Data_Cleaning_Analysis
 This project analyzes DHL customer booking sales performance to uncover revenue drivers, regional trade patterns, and service line trends. Using SQL, a 10,000+ row dataset was cleaned by resolving duplicate entries, missing values, and formatting errors to ensure accurate financial reporting and operational insights
 
