@@ -1,3 +1,4 @@
+[DHL_DATA_CLEANED.xlsx](https://github.com/user-attachments/files/32344734/DHL_DATA_CLEANED.xlsx)
 <img width="934" height="519" alt="Screenshot 2026-09-16 223939" src="https://github.com/user-attachments/assets/4e966466-f980-4ea6-b020-d467038bfdaf" />
 <img width="920" height="367" alt="Screenshot 2026-09-16 224010" src="https://github.com/user-attachments/assets/bc75fc60-03c2-4ff5-8333-f704a9b79084" />
 <img width="941" height="469" alt="Screenshot 2026-09-16 224040" src="https://github.com/user-attachments/assets/428cfc07-371a-4056-87de-f653a0e6d436" />
@@ -76,7 +77,7 @@ SQL (PostgreSQL / SQL Server Management Studio): Data extraction, CTE deduplicat
 
 
 
-Power BI / Excel: Dashboard visual reporting and KPI tracking.
+Power BI / Figma: Dashboard visual reporting and KPI tracking.
 
 📂 Repository Structure
 ├── data/
