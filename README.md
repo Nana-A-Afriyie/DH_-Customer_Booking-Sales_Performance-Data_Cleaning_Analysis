@@ -1,4 +1,3 @@
-[DHL_DATA_CLEANED.xlsx](https://github.com/user-attachments/files/32344734/DHL_DATA_CLEANED.xlsx)
 <img width="934" height="519" alt="Screenshot 2026-09-16 223939" src="https://github.com/user-attachments/assets/4e966466-f980-4ea6-b020-d467038bfdaf" />
 <img width="920" height="367" alt="Screenshot 2026-09-16 224010" src="https://github.com/user-attachments/assets/bc75fc60-03c2-4ff5-8333-f704a9b79084" />
 <img width="941" height="469" alt="Screenshot 2026-09-16 224040" src="https://github.com/user-attachments/assets/428cfc07-371a-4056-87de-f653a0e6d436" />
@@ -72,6 +71,40 @@ Regional Trade Routes: Identification of high-volume origin and destination ship
 
 Delivery Exceptions & Reliability: Analyzing delay rates and returned package percentages across sales channels (Online Portal, Account Manager, API Integration).
 
+** DASHBOARD EXPLAINED AND RECCOMENDATION**
+This visual is a DHL Bookings Dashboard for 2025 that summarizes performance metrics across 10,000 shipments. It breaks down logistics analytics into high-level KPIs and detailed charts covering revenue distributions, trends, and shipment delivery statuses.   
+Key Performance Indicators (KPI Cards)
+Total Revenue: $1,503,506 (averaging $150.35 per booking).   
+Base Rate: $1,305,916 (represents 86.9% of total revenue).   
+Surcharges: $196,591 (represents 13.1% of total revenue).   
+Total Bookings: 10,000 total shipments handled between January and December 2025.   
+On-Time Delivery: 80.7% (translating to 8,065 delivered shipments on time).   
+Delay Rate: 7.5% (752 delayed orders).   
+Visual Data Breakdowns
+Total Revenue (USD) by Origin Region (Bar Chart):
+Shows revenue contribution across five regions.   
+Europe leads as the highest revenue-generating origin, followed closely by N. America and APAC.   
+LATAM and MEA represent significantly smaller shares of origin revenue.   
+Monthly Revenue (USD) Jan – Dec 2025 (Line Chart):
+Tracks monthly performance fluctuated between $110K and $150K+ throughout the year. 
+Peak revenue occurred around July, with noticeable dips around February and September/October.   
+Delivery Status Breakdown (Donut Chart):
+Delivered (Green): Represents the vast majority of shipments.   
+In Transit (Blue): A moderate portion of active shipments currently moving.   
+Delayed (Orange): Accounts for 7.5% of shipments.   
+Returned (Red): A small fraction of shipments that failed delivery and were returned.
+
+**RECCOMENDATIONS AND CONCLUSIONS**
+Improve On-Time Delivery & Reduce Delays
+Root-Cause Analysis on Delays: With a 7.5% delay rate (752 shipments) and an 80.7% on-time delivery rate, analyze underlying causes (e.g., custom hold-ups, carrier bottlenecks, or warehouse fulfillment lags) to move closer to an industry-standard 90%+ target.   
+**Real-time Delay Mitigation**: Implement proactive transit tracking for shipments flagged as "In Transit" to resolve exceptions before they convert into full delays or returns.   
+*** Capitalize on High-Performing & Emerging Regions***
+Double Down on Core Markets: Europe and North America generate the vast majority of revenue. Focus marketing and capacity allocation here to protect high-margin trade lanes.   
+**Expand Regional Penetration**: LATAM and MEA show lower revenue volume. Evaluate whether this is due to limited carrier routes or untapped market demand and consider targeted pricing or route expansion to grow regional market share.   
+** Smooth Out Monthly Revenue Volatility**
+Demand Forecasting & Seasonal Promotions: Monthly revenue swings between $110K and $150K+, with a peak in July followed by mid-to-late year dips. Introduce off-peak volume incentives or contract guarantees during slow months (e.g., February and autumn) to stabilize cash flow year-round.   
+** Optimize Revenue & Ancillary Surcharges**
+Review Surcharge Structure: Surcharges currently account for 13.1% ($196,591) of total revenue. Audit these line items (fuel fees, address corrections, oversize handling) to ensure rates accurately cover operational costs without alienating customers.   
 🛠️ Tools & Technologies Used
 SQL (PostgreSQL / SQL Server Management Studio): Data extraction, CTE deduplication, data cleaning, and aggregation queries.[DHL_Sales_Performance_Uncleaned_10k.csv](https://github.com/user-attachments/files/32316806/DHL_Sales_Performance_Uncleaned_10k.csv)
 
