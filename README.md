@@ -1,116 +1,106 @@
-<img width="934" height="519" alt="Screenshot 2026-09-16 223939" src="https://github.com/user-attachments/assets/4e966466-f980-4ea6-b020-d467038bfdaf" />
-<img width="920" height="367" alt="Screenshot 2026-09-16 224010" src="https://github.com/user-attachments/assets/bc75fc60-03c2-4ff5-8333-f704a9b79084" />
-<img width="941" height="469" alt="Screenshot 2026-09-16 224040" src="https://github.com/user-attachments/assets/428cfc07-371a-4056-87de-f653a0e6d436" />
-<img width="939" height="470" alt="Screenshot 2026-09-16 224135" src="https://github.com/user-attachments/assets/8941c8cc-df65-4e07-85dd-b5ab7d1f4611" />
-<img width="938" height="288" alt="Screenshot 2026-09-16 224216" src="https://github.com/user-attachments/assets/cc158742-c7f7-4b06-8f9b-f46c4a0708cb" />
-# DH_-Customer_Booking-Sales_Performance-Data_Cleaning_Analysis
-This project analyzes DHL customer booking sales performance to uncover revenue drivers, regional trade patterns, and service line trends. Using SQL, a 10,000+ row dataset was cleaned by resolving duplicate entries, missing values, and formatting errors to ensure accurate financial reporting and operational insights
+# 📦 DHL Customer Booking & Sales Performance Analysis
+
+### SQL | Excel | Power BI | Data Analytics
 
 ## 📌 Project Overview
-This project focuses on analyzing sales performance, revenue drivers, and operational metrics for DHL customer bookings. To simulate real-world data engineering and analytics workflows, the project utilizes a dataset containing 10,000+ booking records that underwent comprehensive data cleaning and transformation using SQL prior to analysis.
 
-The objective is to identify revenue trends across customer segments, evaluate high-performing delivery services, and track shipping performance metrics.
+This project analyzes DHL customer booking and sales data to understand revenue performance, shipment trends, and delivery efficiency.
 
----
+The dataset originally contained **10,400 records** with duplicates, missing values, and inconsistent formatting. SQL was used to clean and prepare the data for analysis.
 
-## 🗃️ Dataset Architecture & Data Quality Issues
-The raw dataset (`DHL_Sales_Performance_Uncleaned.csv`) contains **10,400 raw records** across 12 operational, financial, and customer dimensions. 
+An interactive dashboard was developed to visualize revenue, booking performance, regional sales, and delivery status.
 
-Prior to analysis, the dataset contained intentional data quality issues to test SQL cleaning procedures:
-* **Exact Duplicate Rows:** 232 full-row duplicate records.
-* **Primary Key Duplicates:** 400 instances of duplicated `Booking_ID` values resulting from system re-entries or status updates.
-* **Missing Data:** 180 missing records in `Sales_Channel` and 120 missing values in `Weight_KG`.
-* **Formatting Inconsistencies:** Mixed case formatting (`b2b` vs `B2C`) and leading/trailing whitespace in text columns.
-* **Precision Errors:** Unrounded decimal figures across weight and financial columns.
+## 🎯 Project Objectives
 
----
+- Analyze revenue and booking performance.
+- Identify the highest revenue-generating regions.
+- Examine monthly revenue trends.
+- Evaluate delivery performance and delays.
+- Provide recommendations to improve business operations.
 
-## 🧹 Data Cleaning & Transformation (SQL Pipeline)
+## 🛠️ Tools Used
 
-The data cleaning pipeline was executed in SQL to enforce data integrity and structure:
+- **SQL Server:** Data cleaning and analysis.
+- **Excel:** Data inspection and preparation.
+- **Power BI:** Dashboard creation and data visualization.
 
-### 1. Removing Duplicates (Deduplication)
-Used CTEs and `ROW_NUMBER()` window functions to filter out exact duplicate rows and retain only the most recent booking status per `Booking_ID`:
+## 🧹 Data Cleaning Process
 
-```sql
-WITH RankedBookings AS (
-    SELECT 
-        *,
-        ROW_NUMBER() OVER (
-            PARTITION BY Booking_ID 
-            ORDER BY Booking_Date DESC, Total_Revenue_USD DESC
-        ) AS row_num
-    FROM DHL_Sales_Performance_Uncleaned
-)
-DELETE FROM RankedBookings 
-WHERE row_num > 1;
+The dataset contained several data quality issues:
 
-Standardizing Dates & Numeric Precision
-Converted timestamp fields into short date formats (YYYY-MM-DD).
+- 232 exact duplicate records.
+- 400 duplicated booking IDs.
+- 180 missing sales channel values.
+- 120 missing shipment weight values.
+- Inconsistent text formatting and decimal values.
 
-Rounded all numeric columns (Weight_KG, Base_Rate_USD, Surcharges_USD, Total_Revenue_USD) to 2 decimal places using ROUND() and CAST().
+### Cleaning Steps
 
-SQLUPDATE DHL_Sales_Performance_Uncleaned
-SET 
-    Booking_Date = CAST(Booking_Date AS DATE),
-    Weight_KG = ROUND(CAST(Weight_KG AS numeric), 2),
-    Base_Rate_USD = ROUND(CAST(Base_Rate_USD AS numeric), 2),
-    Surcharges_USD = ROUND(CAST(Surcharges_USD AS numeric), 2),
-    Total_Revenue_USD = ROUND(CAST(Total_Revenue_USD AS numeric), 2);
-. Text Standardization & Missing Value Imputation
-Applied TRIM() and UPPER() / INITCAP() to standardize Customer_Type, Service_Type, and Sales_Channel.
+1. Identified and removed duplicate records using SQL `ROW_NUMBER()` and CTEs.
+2. Standardized date formats.
+3. Rounded financial and weight values to two decimal places.
+4. Cleaned inconsistent text using SQL string functions.
+5. Handled missing values using `COALESCE()` and appropriate cleaning methods.
+6. Checked data quality before analysis.
 
-Handled missing values using COALESCE() or targeted imputation logic.
+## 📊 Dashboard Overview
 
-📊 Key Insights & Analytics Focus Areas
-Once cleaned, the dataset was analyzed across three main domains:
+The dashboard summarizes **10,000 shipments across five regions** from January to December 2025.
 
-Sales Performance by Service Line: Revenue breakdown across Express Worldwide, Express Envelope, eCommerce Parcel, and Freight.
+### Key Performance Indicators
 
-Regional Trade Routes: Identification of high-volume origin and destination shipping corridors (North America, Europe, APAC, LATAM, MEA).
+| KPI | Value |
+|---|---:|
+| Total Revenue | $1,503,506 |
+| Base Rate | $1,305,916 |
+| Surcharges | $196,591 |
+| Total Bookings | 10,000 |
+| Average Revenue per Booking | $150.35 |
+| On-Time Delivery | 80.7% |
+| Delay Rate | 7.5% |
 
-Delivery Exceptions & Reliability: Analyzing delay rates and returned package percentages across sales channels (Online Portal, Account Manager, API Integration).
+## 🔍 Key Findings
 
-** DASHBOARD EXPLAINED AND RECCOMENDATION**
-This visual is a DHL Bookings Dashboard for 2025 that summarizes performance metrics across 10,000 shipments. It breaks down logistics analytics into high-level KPIs and detailed charts covering revenue distributions, trends, and shipment delivery statuses.   
-Key Performance Indicators (KPI Cards)
-Total Revenue: $1,503,506 (averaging $150.35 per booking).   
-Base Rate: $1,305,916 (represents 86.9% of total revenue).   
-Surcharges: $196,591 (represents 13.1% of total revenue).   
-Total Bookings: 10,000 total shipments handled between January and December 2025.   
-On-Time Delivery: 80.7% (translating to 8,065 delivered shipments on time).   
-Delay Rate: 7.5% (752 delayed orders).   
-Visual Data Breakdowns
-Total Revenue (USD) by Origin Region (Bar Chart):
-Shows revenue contribution across five regions.   
-Europe leads as the highest revenue-generating origin, followed closely by N. America and APAC.   
-LATAM and MEA represent significantly smaller shares of origin revenue.   
-Monthly Revenue (USD) Jan – Dec 2025 (Line Chart):
-Tracks monthly performance fluctuated between $110K and $150K+ throughout the year. 
-Peak revenue occurred around July, with noticeable dips around February and September/October.   
-Delivery Status Breakdown (Donut Chart):
-Delivered (Green): Represents the vast majority of shipments.   
-In Transit (Blue): A moderate portion of active shipments currently moving.   
-Delayed (Orange): Accounts for 7.5% of shipments.   
-Returned (Red): A small fraction of shipments that failed delivery and were returned.
+**1. Regional Revenue**
 
-**RECCOMENDATIONS AND CONCLUSIONS**
-Improve On-Time Delivery & Reduce Delays
-Root-Cause Analysis on Delays: With a 7.5% delay rate (752 shipments) and an 80.7% on-time delivery rate, analyze underlying causes (e.g., custom hold-ups, carrier bottlenecks, or warehouse fulfillment lags) to move closer to an industry-standard 90%+ target.   
-**Real-time Delay Mitigation**: Implement proactive transit tracking for shipments flagged as "In Transit" to resolve exceptions before they convert into full delays or returns.   
-*** Capitalize on High-Performing & Emerging Regions***
-Double Down on Core Markets: Europe and North America generate the vast majority of revenue. Focus marketing and capacity allocation here to protect high-margin trade lanes.   
-**Expand Regional Penetration**: LATAM and MEA show lower revenue volume. Evaluate whether this is due to limited carrier routes or untapped market demand and consider targeted pricing or route expansion to grow regional market share.   
-** Smooth Out Monthly Revenue Volatility**
-Demand Forecasting & Seasonal Promotions: Monthly revenue swings between $110K and $150K+, with a peak in July followed by mid-to-late year dips. Introduce off-peak volume incentives or contract guarantees during slow months (e.g., February and autumn) to stabilize cash flow year-round.   
-** Optimize Revenue & Ancillary Surcharges**
-Review Surcharge Structure: Surcharges currently account for 13.1% ($196,591) of total revenue. Audit these line items (fuel fees, address corrections, oversize handling) to ensure rates accurately cover operational costs without alienating customers.   
-🛠️ Tools & Technologies Used
-SQL (PostgreSQL / SQL Server Management Studio): Data extraction, CTE deduplication, data cleaning, and aggregation queries.[DHL_Sales_Performance_Uncleaned_10k.csv](https://github.com/user-attachments/files/32316806/DHL_Sales_Performance_Uncleaned_10k.csv)
+Europe generated the highest revenue, followed by North America and Asia-Pacific. LATAM and MEA contributed smaller shares.
 
+**2. Monthly Revenue**
 
+Revenue fluctuated throughout 2025, with July recording one of the highest monthly performances.
 
-Power BI / Figma: Dashboard visual reporting and KPI tracking.
+**3. Delivery Performance**
+
+- Delivered: 80.7%
+- In Transit: 9.5%
+- Delayed: 7.5%
+- Returned: 2.3%
+
+**4. Service Performance**
+
+Express services generated the highest revenue among the service categories.
+
+**5. Sales Channels**
+
+Online bookings contributed the largest share of revenue.
+
+## 💡 Recommendations
+
+- **Improve Delivery Efficiency:** Investigate shipment delays and improve tracking.
+- **Strengthen Key Markets:** Focus on Europe and North America to maintain revenue growth.
+- **Expand Regional Opportunities:** Explore growth opportunities in LATAM and MEA.
+- **Improve Revenue Planning:** Use monthly trends to forecast demand.
+- **Optimize Pricing:** Review surcharges and service pricing.
+
+## 🏁 Conclusion
+
+This project demonstrates how SQL, Excel, and Power BI can be used to clean, analyze, and visualize logistics data.
+
+The analysis identified key revenue drivers, regional performance trends, and opportunities to improve delivery efficiency.
+
+It also demonstrates practical skills in **data cleaning, SQL analysis, dashboard development, and business decision-making**.<img width="1672" height="941" alt="DHL Europe Express Analytics Dashboard" src="https://github.com/user-attachments/assets/64ea753a-52bd-40b0-aefe-29bf1cb69b11" />
+<img width="1672" height="941" alt="DHL Logistics Analytics Dashboard 2025" src="https://github.com/user-attachments/assets/78186303-7b74-4f35-904b-f11c8dd8d3c5" />
+
 
 📂 Repository Structure
 ├── data/
