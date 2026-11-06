@@ -9,6 +9,9 @@ This project analyzes DHL customer booking and sales data to understand revenue 
 The dataset originally contained **10,400 records** with duplicates, missing values, and inconsistent formatting. SQL was used to clean and prepare the data for analysis.
 
 An interactive dashboard was developed to visualize revenue, booking performance, regional sales, and delivery status.
+width="1672" height="941" alt="DHL Europe Express Analytics Dashboard" src="https://github.com/user-attachments/assets/64ea753a-52bd-40b0-aefe-29bf1cb69b11" />
+<img width="1672" height="941" alt="DHL Logistics Analytics Dashboard 2025" src="https://github.com/user-attachments/assets/78186303-7b74-4f35-904b-f11c8dd8d3c5" />
+
 
 ## 🎯 Project Objectives
 
@@ -98,8 +101,7 @@ This project demonstrates how SQL, Excel, and Power BI can be used to clean, ana
 
 The analysis identified key revenue drivers, regional performance trends, and opportunities to improve delivery efficiency.
 
-It also demonstrates practical skills in **data cleaning, SQL analysis, dashboard development, and business decision-making**.<img width="1672" height="941" alt="DHL Europe Express Analytics Dashboard" src="https://github.com/user-attachments/assets/64ea753a-52bd-40b0-aefe-29bf1cb69b11" />
-<img width="1672" height="941" alt="DHL Logistics Analytics Dashboard 2025" src="https://github.com/user-attachments/assets/78186303-7b74-4f35-904b-f11c8dd8d3c5" />
+It also demonstrates practical skills in **data cleaning, SQL analysis, dashboard development, and business decision-making**.
 
 
 📂 Repository Structure
